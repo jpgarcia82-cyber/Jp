@@ -1,7 +1,9 @@
 # Cimiento — posicionamiento y dirección de marca
 
-_Consultoría de sistemas de datos para PYMEs, con tecnología TINO._
+_Consultoría de sistemas de datos para PYMEs, sobre ERPNext._
 _Documento de trabajo — no es material público. Precios, plazos exactos y nombres de clientes son placeholders hasta que se definan._
+
+> **Nota de alcance:** TINO es el motor de automatización de tu cliente actual — no es tuyo ni es parte de lo que vendes a nuevos clientes. Este documento y la landing ya no lo mencionan como tecnología propia. Lo que sí es tuyo y sostiene toda la oferta: la metodología de 4 fases, tu especialización en ERPNext, y la automatización que construyes a la medida de cada cliente (sin marca propia por ahora — es un servicio, no un producto empaquetado).
 
 ---
 
@@ -15,7 +17,7 @@ _Documento de trabajo — no es material público. Precios, plazos exactos y nom
 
 La mayoría de las PYMEs no operan sin esfuerzo — operan sin sistema. Los datos del negocio existen, pero están repartidos entre Excel, WhatsApp y correos que nadie concilia, así que nadie puede responder con certeza en qué canal se gana dinero, cuánto cuesta un cliente nuevo, o si el negocio retiene clientes o solo reemplaza a los que se van.
 
-La oferta no es una recomendación en PDF. Es la instalación de un sistema real (ERPNext como sistema de registro, TINO como motor de automatización) y la prueba de que ese sistema quedó funcionando: una auditoría del "antes" (v1) y una auditoría del "después" (v2) que se pueden comparar línea por línea. El diferenciador no es "sabemos de negocios" — es "lo que decimos que pasó, se puede verificar."
+La oferta no es una recomendación en PDF. Es la instalación de un sistema real (ERPNext como sistema de registro, más la automatización que se diseña y construye a la medida de cada negocio) y la prueba de que ese sistema quedó funcionando: una auditoría del "antes" (v1) y una auditoría del "después" (v2) que se pueden comparar línea por línea. El diferenciador no es "sabemos de negocios" — es "lo que decimos que pasó, se puede verificar."
 
 ### Objeciones a anticipar (y cómo se resuelven en el copy)
 
@@ -23,7 +25,7 @@ La oferta no es una recomendación en PDF. Es la instalación de un sistema real
 No se compite contra otras consultorías por precio — se reposiciona qué se está comprando. Una consultoría tradicional entrega una opinión que se lee una vez. Aquí el pago único de instalación construye un activo que se queda operando en el negocio, y la mensualidad es monitoreo activo, no una renta de acceso — si se cancela, se detiene el servicio de ajustes, sin contrato que amarre. El precio exacto no se muestra en la landing; se define en la llamada de diagnóstico según alcance.
 
 **"¿Esto no es muy técnico para mí?"**
-El dueño de la PYME nunca toca ERPNext ni código. Ve dashboards y reportes en español simple. El punto que más tranquiliza: TINO no puede tocar el sistema real por su cuenta — cualquier cambio que proponga pasa como una propuesta revisable que el dueño aprueba o rechaza. Eso hay que decirlo explícito, no asumir que se entiende.
+El dueño de la PYME nunca toca ERPNext ni código. Tú te encargas de toda la implementación técnica; él ve dashboards y reportes en español simple. El punto que más tranquiliza: nada se automatiza a ciegas — cualquier automatización se diseña con control explícito, así que el dueño siempre sabe qué se activó y por qué. Eso hay que decirlo explícito, no asumir que se entiende.
 
 **"¿Y si no funciona?"**
 Esta es la objeción que la metodología ya resuelve estructuralmente: la auditoría v2 no es una promesa de que funcionó, es una comparación verificable contra la v1. Hay que poner esto al frente, no como letra pequeña — es el argumento más fuerte que tiene la oferta y el menos usado en consultoría genérica.
@@ -35,22 +37,16 @@ No se ataca el Excel — se le hace la pregunta que el Excel no responde: ¿en q
 
 ## 2. Nombre y dirección de marca
 
-### La decisión de fondo: ¿se construye sobre "TINO" o al lado de "TINO"?
+### Sobre qué se construye el nombre
 
-**Recomendación: nombre de estudio/consultoría distinto, con TINO como "el motor" — no construir la marca de la oferta directamente sobre TINO.**
+No hay una marca de tecnología propia sobre la cual apoyarse (TINO es de tu cliente), así que el nombre tiene que cargar solo con lo que sí es tuyo: la **metodología** (las 4 fases, el framework AARRR, el par de auditorías v1/v2) y tu **especialización en ERPNext**. Eso en realidad simplifica la decisión — es un nombre de estudio/consultoría, sin necesidad de resolver una relación "marca + tecnología con nombre propio". La tagline hace ese trabajo: **"[Nombre] — sistema y datos para PYMEs, sobre ERPNext."** Nombra la plataforma (ERPNext es un software real y neutral, especializarte en él es una credencial, no una apropiación) sin fingir tener un motor propio.
 
-Razonamiento:
-
-- TINO es una marca de **producto/tecnología** (un motor de automatización con repositorio propio, ya en producción con un cliente real). Si la oferta de consultoría se llama también TINO, el mercado no puede distinguir "estoy contratando un servicio de consultoría" de "estoy comprando/licenciando un software" — y eso importa el día que TINO se quiera licenciar o vender como producto independiente a alguien que no necesita la consultoría completa.
-- Separar los dos nombres da una narrativa más fuerte, no más débil: "**método** + **motor propio**" suena a que hay más detrás que una sola cosa. "Cimiento, con tecnología TINO" comunica método *y* tecnología real en una sola frase — que es exactamente el argumento contra la consultoría genérica de PDF.
-- Mantiene opcional a futuro: TINO puede evolucionar, tener otros clientes de software puro, o incluso otros implementadores, sin que eso reescriba qué es la marca de consultoría.
-
-La alternativa (liderar con TINO, ej. "TINO Sistemas") no es mala — es válida si la prioridad de negocio es construir equity en TINO como marca central por encima de todo lo demás. Se incluye como opción 5 para que la decisión sea explícita, no por default.
+Si más adelante desarrollas tu propia herramienta de automatización reutilizable (algo que hoy no tienes — hoy la construyes a medida por cliente), ese es el momento de revisar si conviene darle nombre y usarla como "motor propio" en el mismo esquema que se descartó para TINO. Por ahora, no es necesario ni recomendable inventarle un nombre a algo que todavía es un servicio a medida, no un producto.
 
 ### Opciones
 
 **1. Cimiento** — _recomendado_
-"No decoramos tu negocio, le construimos el cimiento que nunca tuvo." Metáfora directa y sin ambigüedad: estructura debajo de lo que ya existe, no algo cosmético encima. Fácil de decir, fácil de recordar para un dueño de PYME, no requiere explicación. Funciona bien como "Cimiento — sistema y datos para PYMEs, con tecnología TINO."
+"No decoramos tu negocio, le construimos el cimiento que nunca tuvo." Metáfora directa y sin ambigüedad: estructura debajo de lo que ya existe, no algo cosmético encima. Fácil de decir, fácil de recordar para un dueño de PYME, no requiere explicación. Funciona bien como "Cimiento — sistema y datos para PYMEs, sobre ERPNext."
 
 **2. Bitácora**
 El cuaderno de bitácora: el registro fechado y verificable de lo que pasó — conecta directo con las auditorías v1/v2 y el journey documentado. Más literario que "Cimiento", pone el foco en la *prueba/registro* más que en la *construcción*. Buena opción si se quiere que el nombre hable primero de "verificable" y después de "sistema".
@@ -60,9 +56,6 @@ El andamiaje temporal que permite construir la estructura real, y que se queda v
 
 **4. Trama**
 El tejido que conecta hilos sueltos (Excel, WhatsApp, correo) en una sola tela. Más abstracto y con más carácter de marca/diseño que los anteriores — menos literal, más distintivo, pero requiere una frase de apoyo para que un dueño de PYME entienda la referencia en el primer segundo.
-
-**5. TINO Sistemas** _(alternativa: liderar con TINO)_
-Construir la marca de consultoría directamente sobre TINO. Tiene sentido solo si la prioridad estratégica es que todo el reconocimiento de mercado se acumule en un solo nombre (TINO) en vez de repartirse entre "Cimiento" y "TINO". El costo es la ambigüedad servicio-vs-producto descrita arriba.
 
 ---
 
