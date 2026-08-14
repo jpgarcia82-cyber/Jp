@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico gratuito — Cimiento</title>
+<meta name="description" content="Responde 9 preguntas sobre cómo operas hoy tu negocio y recibe un diagnóstico preliminar gratuito — sin compartir datos financieros ni información sensible.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23F2EFE6' stroke='%2316140F' stroke-width='6'/%3E%3Cpath d='M30 52 L44 66 L72 36' fill='none' stroke='%23C1391F' stroke-width='8' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16140f;
+    --paper:#f2efe6;
+    --panel:#eae5d6;
+    --panel-2:#e2dcc9;
+    --accent:#c1391f;
+    --accent-ink:#fdf6ee;
+    --verified:#2f5233;
+    --line: rgba(22,20,15,0.15);
+    --line-strong: rgba(22,20,15,0.35);
+    --display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --maxw: 760px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{background:var(--paper);}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: var(--display);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,5vw,32px);}
+
+  header{
+    border-bottom:1px solid var(--line-strong);
+    padding:18px 0;
+  }
+  .header-inner{display:flex; align-items:center; justify-content:space-between;}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .seal{
+    width:30px; height:30px; border-radius:50%;
+    border:2.5px solid var(--ink); display:flex; align-items:center; justify-content:center;
+    transform:rotate(-6deg); background:var(--paper); flex:none;
+  }
+  .seal svg{width:14px; height:14px;}
+  .brand-word{font-weight:800; font-size:18px;}
+  .exit-link{font-family:var(--mono); font-size:12.5px; text-decoration:none; opacity:0.6; border-bottom:1px solid var(--line-strong);}
+  .exit-link:hover{opacity:1;}
+
+  main{padding:clamp(32px,6vw,56px) 0 80px;}
+
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); font-weight:600; display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .eyebrow::before{content:""; width:20px; height:2px; background:var(--accent); display:block;}
+
+  .progress-track{
+    height:6px; background:var(--panel); border:1px solid var(--line-strong); margin-bottom:36px; position:relative;
+  }
+  .progress-fill{position:absolute; inset:0; width:0%; background:var(--ink); transition:width .25s ease;}
+  .progress-label{font-family:var(--mono); font-size:11.5px; opacity:0.55; margin-top:8px; text-align:right;}
+
+  .step{display:none;}
+  .step.active{display:block; animation:fadein .3s ease;}
+  @keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .q-title{font-size:clamp(21px,2.6vw,26px); font-weight:700; line-height:1.25; margin-bottom:6px;}
+  .q-hint{font-family:var(--mono); font-size:12px; opacity:0.55; margin-bottom:24px;}
+
+  .options{display:flex; flex-direction:column; gap:10px; margin-bottom:28px;}
+  .opt{
+    border:1.5px solid var(--line-strong); padding:14px 16px; cursor:pointer;
+    display:flex; align-items:center; gap:12px; font-size:15px; background:var(--paper);
+    transition:border-color .15s, background .15s;
+  }
+  .opt:hover{border-color:var(--ink);}
+  .opt.selected{border-color:var(--accent); background:var(--panel);}
+  .opt-mark{
+    width:18px; height:18px; border:1.5px solid var(--ink); flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;
+  }
+  .opt.selected .opt-mark{background:var(--accent); border-color:var(--accent); color:var(--accent-ink);}
+  .opt[data-type="radio"] .opt-mark{border-radius:50%;}
+
+  .text-input{
+    width:100%; border:1.5px solid var(--line-strong); background:var(--paper); color:var(--ink);
+    font-family:var(--display); font-size:15px; padding:12px 14px; margin-bottom:24px;
+  }
+  .text-input:focus{outline:none; border-color:var(--ink);}
+  label.field-label{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; opacity:.6; display:block; margin-bottom:8px;}
+
+  .step-nav{display:flex; justify-content:space-between; align-items:center; gap:16px;}
+  .btn{
+    font-family:var(--mono); font-size:13px; font-weight:600; text-decoration:none; letter-spacing:0.02em;
+    padding:12px 22px; display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink);
+    color:var(--ink); background:transparent; cursor:pointer;
+  }
+  .btn-solid{background:var(--accent); border-color:var(--accent); color:var(--accent-ink);}
+  .btn-solid:hover{background:#a72f18; border-color:#a72f18;}
+  .btn:not(.btn-solid):hover{background:var(--ink); color:var(--paper);}
+  .btn:disabled{opacity:0.35; cursor:not-allowed; pointer-events:none;}
+  .btn-quiet{border-color:transparent; opacity:0.6;}
+  .btn-quiet:hover{background:transparent; opacity:1; color:var(--ink);}
+
+  .privacy-note{
+    margin-top:28px; font-family:var(--mono); font-size:11.5px; opacity:0.55; display:flex; gap:8px; align-items:flex-start;
+  }
+
+  /* Results */
+  .result-stamp{
+    width:96px; height:96px; border-radius:50%; border:3px solid var(--accent); color:var(--accent);
+    display:flex; align-items:center; justify-content:center; text-align:center; font-family:var(--mono);
+    font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; transform:rotate(-6deg);
+    margin-bottom:20px;
+  }
+  .result-tier{
+    font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+    padding:5px 10px; display:inline-block; border:1px solid var(--ink); margin-bottom:14px;
+  }
+  .result-tier.alto{background:var(--accent); border-color:var(--accent); color:var(--accent-ink);}
+  .result-tier.medio{background:var(--panel-2); }
+  .result-tier.bajo{background:var(--verified); border-color:var(--verified); color:var(--accent-ink);}
+
+  .result-title{font-size:clamp(24px,3.2vw,32px); font-weight:700; margin-bottom:16px; line-height:1.2;}
+  .result-body p{margin-bottom:16px; font-size:16px; opacity:0.9;}
+  .result-body strong{color:var(--accent);}
+
+  .disclaimer-box{
+    border-left:3px solid var(--ink); background:var(--panel); padding:14px 16px; margin:24px 0;
+    font-family:var(--mono); font-size:12.5px; opacity:0.75;
+  }
+
+  .cta-box{
+    background:var(--ink); color:var(--paper); padding:clamp(28px,5vw,40px); margin-top:8px;
+  }
+  .cta-box h3{font-size:clamp(20px,2.4vw,24px); margin-bottom:10px;}
+  .cta-box p{opacity:0.75; font-size:14.5px; margin-bottom:20px; max-width:52ch;}
+  .cta-box .btn-solid{font-size:14px; padding:14px 24px;}
+
+  footer{border-top:1px solid var(--line-strong); padding:24px 0; text-align:center;}
+  footer p{font-family:var(--mono); font-size:11.5px; opacity:0.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 13 L9 18 L20 6" stroke="#16140f" stroke-width="3" stroke-linecap="square"/></svg>
+      </span>
+      <span class="brand-word">CIMIENTO</span>
+    </a>
+    <a class="exit-link" href="index.html">← Volver</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="eyebrow">Diagnóstico preliminar gratuito</div>
+
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">Pregunta 1 de 9</div>
+
+    <form id="wizardForm">
+
+      <div class="step active" data-step="1">
+        <div class="q-title">¿En qué tipo de negocio estás?</div>
+        <div class="q-hint">Elige la opción que más se parezca.</div>
+        <div class="options" data-field="tipo" data-type="radio">
+          <div class="opt" data-type="radio" data-value="proyecto"><span class="opt-mark"></span>Servicios que cotizan por proyecto (diseño, consultoría, obra)</div>
+          <div class="opt" data-type="radio" data-value="restaurante"><span class="opt-mark"></span>Restaurante o alimentos y bebidas</div>
+          <div class="opt" data-type="radio" data-value="retail"><span class="opt-mark"></span>Retail o comercio</div>
+          <div class="opt" data-type="radio" data-value="otro"><span class="opt-mark"></span>Otro</div>
+        </div>
+        <div class="step-nav"><span></span><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="2">
+        <div class="q-title">¿Cuántas personas trabajan en el negocio?</div>
+        <div class="q-hint">Un rango aproximado basta.</div>
+        <div class="options" data-field="tamano" data-type="radio">
+          <div class="opt" data-type="radio" data-value="solo"><span class="opt-mark"></span>Solo yo</div>
+          <div class="opt" data-type="radio" data-value="2-10"><span class="opt-mark"></span>2–10</div>
+          <div class="opt" data-type="radio" data-value="11-50"><span class="opt-mark"></span>11–50</div>
+          <div class="opt" data-type="radio" data-value="50+"><span class="opt-mark"></span>Más de 50</div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="3">
+        <div class="q-title">¿Cómo registran hoy una venta o un cliente nuevo?</div>
+        <div class="q-hint">No pidas exactitud — cómo lo hacen la mayoría de las veces.</div>
+        <div class="options" data-field="registro" data-type="radio">
+          <div class="opt" data-type="radio" data-value="excel"><span class="opt-mark"></span>Excel o Google Sheets</div>
+          <div class="opt" data-type="radio" data-value="whatsapp"><span class="opt-mark"></span>WhatsApp o cuaderno</div>
+          <div class="opt" data-type="radio" data-value="sistema"><span class="opt-mark"></span>Ya tenemos un sistema (ERP/CRM)</div>
+          <div class="opt" data-type="radio" data-value="inconsistente"><span class="opt-mark"></span>No lo registramos de forma consistente</div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="4">
+        <div class="q-title">¿Por cuáles canales les llegan clientes hoy?</div>
+        <div class="q-hint">Puedes elegir varios.</div>
+        <div class="options" data-field="canales" data-type="checkbox">
+          <div class="opt" data-type="checkbox" data-value="redes"><span class="opt-mark"></span>Redes sociales</div>
+          <div class="opt" data-type="checkbox" data-value="referidos"><span class="opt-mark"></span>Referidos / boca a boca</div>
+          <div class="opt" data-type="checkbox" data-value="google"><span class="opt-mark"></span>Google / buscadores</div>
+          <div class="opt" data-type="checkbox" data-value="whatsapp_directo"><span class="opt-mark"></span>WhatsApp directo</div>
+          <div class="opt" data-type="checkbox" data-value="presencial"><span class="opt-mark"></span>Presencial / ubicación física</div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="5">
+        <div class="q-title">¿Sabes, sin calcular a mano, en qué canal ganas más dinero?</div>
+        <div class="q-hint"></div>
+        <div class="options" data-field="sabe_canal" data-type="radio">
+          <div class="opt" data-type="radio" data-value="certeza"><span class="opt-mark"></span>Sí, con certeza</div>
+          <div class="opt" data-type="radio" data-value="aproximada"><span class="opt-mark"></span>Tengo una idea aproximada</div>
+          <div class="opt" data-type="radio" data-value="no_se"><span class="opt-mark"></span>No lo sé</div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="6">
+        <div class="q-title">¿Cuántas herramientas distintas usan para operar el negocio?</div>
+        <div class="q-hint">Marca todas las que usen hoy.</div>
+        <div class="options" data-field="herramientas" data-type="checkbox">
+          <div class="opt" data-type="checkbox" data-value="excel"><span class="opt-mark"></span>Excel / Sheets</div>
+          <div class="opt" data-type="checkbox" data-value="whatsapp"><span class="opt-mark"></span>WhatsApp</div>
+          <div class="opt" data-type="checkbox" data-value="correo"><span class="opt-mark"></span>Correo</div>
+          <div class="opt" data-type="checkbox" data-value="papel"><span class="opt-mark"></span>Papel / cuaderno</div>
+          <div class="opt" data-type="checkbox" data-value="app"><span class="opt-mark"></span>Alguna app o sistema</div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="7">
+        <div class="q-title">¿Cuál es tu mayor dolor de cabeza operativo hoy?</div>
+        <div class="q-hint">Elige hasta 2.</div>
+        <div class="options" data-field="dolores" data-type="checkbox" data-max="2">
+          <div class="opt" data-type="checkbox" data-value="canal_rentable"><span class="opt-mark"></span>No sé qué canal es rentable</div>
+          <div class="opt" data-type="checkbox" data-value="seguimientos"><span class="opt-mark"></span>Se me pierden seguimientos de clientes</div>
+          <div class="opt" data-type="checkbox" data-value="inventario"><span class="opt-mark"></span>No tengo visibilidad de mi inventario</div>
+          <div class="opt" data-type="checkbox" data-value="desactualizada"><span class="opt-mark"></span>Mi equipo trabaja con información desactualizada</div>
+          <div class="opt" data-type="checkbox" data-value="conciliar"><span class="opt-mark"></span>Pierdo tiempo conciliando números a mano</div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="8">
+        <div class="q-title">¿Ya tienes un consultor o asesor de negocio?</div>
+        <div class="q-hint"></div>
+        <div class="options" data-field="consultor" data-type="radio">
+          <div class="opt" data-type="radio" data-value="no"><span class="opt-mark"></span>No</div>
+          <div class="opt" data-type="radio" data-value="insatisfecho"><span class="opt-mark"></span>Sí, pero no estoy satisfecho</div>
+          <div class="opt" data-type="radio" data-value="conforme"><span class="opt-mark"></span>Sí, estoy conforme</div>
+        </div>
+        <div class="step-nav"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid next-btn" disabled>Siguiente →</button></div>
+      </div>
+
+      <div class="step" data-step="9">
+        <div class="q-title">¿A dónde te enviamos el resultado?</div>
+        <div class="q-hint">Solo para mandarte tu diagnóstico — nada más.</div>
+        <label class="field-label" for="nombre">Nombre</label>
+        <input class="text-input" type="text" id="nombre" autocomplete="name" required>
+        <label class="field-label" for="correo">Correo</label>
+        <input class="text-input" type="email" id="correo" autocomplete="email" required>
+        <div class="privacy-note">🔒 No te pedimos cifras financieras, contraseñas ni datos de tus clientes — solo cómo operas hoy.</div>
+        <div class="step-nav" style="margin-top:24px;"><button type="button" class="btn back-btn">← Atrás</button><button type="button" class="btn btn-solid" id="submitBtn">Ver mi diagnóstico →</button></div>
+      </div>
+
+    </form>
+
+    <div class="step" id="resultStep" data-step="result">
+      <div class="result-stamp" id="resultStamp">DIAGNÓSTICO<br>PRELIMINAR</div>
+      <div class="result-tier" id="resultTier"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-body" id="resultBody"></div>
+
+      <div class="disclaimer-box">
+        Esto es un diagnóstico automático basado en patrones de tus respuestas — no una auditoría real de tus datos.
+        La Auditoría V1 completa mapea tu operación real, canal por canal, con un documento verificable.
+      </div>
+
+      <div class="cta-box">
+        <h3>¿Quieres el diagnóstico completo?</h3>
+        <p>Auditamos tu operación real y te entregamos un documento verificable — no una opinión. Este resultado preliminar ya te da un lugar de partida para esa conversación.</p>
+        <a class="btn btn-solid" id="ctaMailto" href="#">Quiero la auditoría completa →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><p>Cimiento — Estrategia y sistemas de datos para PYMEs</p></div>
+</footer>
+
+<script>
+(function(){
+  var state = {tipo:null, tamano:null, registro:null, canales:[], sabe_canal:null, herramientas:[], dolores:[], consultor:null, nombre:'', correo:''};
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step[data-step]'));
+  var totalQuestions = 9;
+  var current = 1;
+
+  function showStep(n){
+    steps.forEach(function(s){ s.classList.remove('active'); });
+    var target = document.querySelector('.step[data-step="'+n+'"]');
+    if(target) target.classList.add('active');
+    if(n !== 'result'){
+      document.getElementById('progressFill').style.width = ((n-1)/totalQuestions*100)+'%';
+      document.getElementById('progressLabel').textContent = 'Pregunta '+n+' de '+totalQuestions;
+    } else {
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressLabel').textContent = 'Listo';
+    }
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  document.querySelectorAll('.options').forEach(function(group){
+    var field = group.getAttribute('data-field');
+    var type = group.getAttribute('data-type');
+    var max = parseInt(group.getAttribute('data-max')||'0',10);
+    group.querySelectorAll('.opt').forEach(function(opt){
+      opt.addEventListener('click', function(){
+        var val = opt.getAttribute('data-value');
+        if(type === 'radio'){
+          group.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('selected'); });
+          opt.classList.add('selected');
+          state[field] = val;
+        } else {
+          var arr = state[field];
+          var idx = arr.indexOf(val);
+          if(idx > -1){
+            arr.splice(idx,1);
+            opt.classList.remove('selected');
+          } else {
+            if(max && arr.length >= max) return;
+            arr.push(val);
+            opt.classList.add('selected');
+          }
+        }
+        var stepEl = group.closest('.step');
+        var nextBtn = stepEl.querySelector('.next-btn');
+        var hasAnswer = type === 'radio' ? !!state[field] : state[field].length > 0;
+        if(nextBtn) nextBtn.disabled = !hasAnswer;
+      });
+    });
+  });
+
+  document.querySelectorAll('.next-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      current = current + 1;
+      showStep(current);
+    });
+  });
+  document.querySelectorAll('.back-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      current = current - 1;
+      showStep(current);
+    });
+  });
+
+  document.getElementById('submitBtn').addEventListener('click', function(){
+    var nombre = document.getElementById('nombre').value.trim();
+    var correo = document.getElementById('correo').value.trim();
+    if(!nombre || !correo || correo.indexOf('@') === -1){
+      alert('Falta tu nombre o un correo válido.');
+      return;
+    }
+    state.nombre = nombre;
+    state.correo = correo;
+    renderResult();
+    showStep('result');
+  });
+
+  var labels = {
+    canal_rentable: 'no sabes qué canal es rentable',
+    seguimientos: 'se te pierden seguimientos de clientes',
+    inventario: 'no tienes visibilidad de tu inventario',
+    desactualizada: 'tu equipo trabaja con información desactualizada',
+    conciliar: 'pierdes tiempo conciliando números a mano'
+  };
+
+  function renderResult(){
+    var score = 0;
+    if(state.registro === 'excel') score += 1;
+    if(state.registro === 'whatsapp') score += 2;
+    if(state.registro === 'inconsistente') score += 3;
+    if(state.sabe_canal === 'aproximada') score += 1;
+    if(state.sabe_canal === 'no_se') score += 3;
+    score += state.herramientas.length;
+    score += state.dolores.length;
+    if(state.consultor === 'insatisfecho') score += 2;
+
+    var tier = score >= 10 ? 'alto' : (score >= 5 ? 'medio' : 'bajo');
+    var tierLabel = tier === 'alto' ? 'RIESGO ALTO DE OPERAR A CIEGAS' : (tier === 'medio' ? 'RIESGO MEDIO — HAY PUNTOS CIEGOS' : 'RIESGO BAJO — YA TIENES BASE');
+
+    var tierEl = document.getElementById('resultTier');
+    tierEl.textContent = tierLabel;
+    tierEl.className = 'result-tier ' + tier;
+
+    var dolorTexts = state.dolores.map(function(d){ return labels[d]; }).filter(Boolean);
+    var dolorPhrase = dolorTexts.length ? dolorTexts.join(' y ') : 'varias señales de operación dispersa';
+
+    var titleEl = document.getElementById('resultTitle');
+    var bodyEl = document.getElementById('resultBody');
+
+    if(tier === 'alto'){
+      titleEl.textContent = 'Probablemente estás perdiendo dinero que ni siquiera ves.';
+      bodyEl.innerHTML =
+        '<p>Marcaste que <strong>'+dolorPhrase+'</strong>, y usas <strong>'+state.herramientas.length+' herramientas distintas</strong> para operar el negocio. Esa combinación normalmente significa que hay ventas o costos que se escapan sin que aparezcan en ningún reporte.</p>' +
+        '<p>Con "'+(state.sabe_canal==='no_se' ? 'no saber en qué canal ganas' : 'solo tener una idea aproximada de en qué canal ganas')+'", es muy probable que estés poniendo esfuerzo (o presupuesto) en un canal que no es el que realmente te da de comer.</p>';
+    } else if(tier === 'medio'){
+      titleEl.textContent = 'Ya tienes algo de orden — pero hay puntos ciegos reales.';
+      bodyEl.innerHTML =
+        '<p>Marcaste <strong>'+dolorPhrase+'</strong>. No estás operando totalmente a ciegas, pero sí hay información que depende de que alguien la reconstruya a mano — y eso falla justo cuando más la necesitas.</p>';
+    } else {
+      titleEl.textContent = 'Vas mejor que la mayoría de las PYMEs artesanales — con oportunidad clara.';
+      bodyEl.innerHTML =
+        '<p>Tu operación ya tiene más estructura que el promedio. El siguiente salto no es "empezar a ordenar" — es volver auditable y verificable lo que ya haces, y automatizar lo repetitivo.</p>';
+    }
+
+    var subject = encodeURIComponent('Quiero mi auditoría completa — ' + state.nombre);
+    var bodyLines = [
+      'Nombre: ' + state.nombre,
+      'Correo: ' + state.correo,
+      'Tipo de negocio: ' + (state.tipo||'-'),
+      'Tamaño del equipo: ' + (state.tamano||'-'),
+      'Cómo registran ventas/clientes: ' + (state.registro||'-'),
+      'Canales: ' + (state.canales.join(', ')||'-'),
+      '¿Sabe qué canal es rentable?: ' + (state.sabe_canal||'-'),
+      'Herramientas que usan: ' + (state.herramientas.join(', ')||'-'),
+      'Mayores dolores: ' + (state.dolores.join(', ')||'-'),
+      '¿Tiene consultor?: ' + (state.consultor||'-'),
+      'Resultado del diagnóstico preliminar: ' + tierLabel
+    ];
+    var body = encodeURIComponent(bodyLines.join('\n'));
+    document.getElementById('ctaMailto').href = 'mailto:jp.garcia82@gmail.com?subject=' + subject + '&body=' + body;
+  }
+})();
+</script>
+
+</body>
+</html>
