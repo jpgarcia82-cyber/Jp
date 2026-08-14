@@ -1,9 +1,11 @@
 # Cimiento — posicionamiento y dirección de marca
 
-_Consultoría de sistemas de datos para PYMEs, sobre ERPNext._
+_Estrategia y sistemas de datos para PYMEs._
 _Documento de trabajo — no es material público. Precios, plazos exactos y nombres de clientes son placeholders hasta que se definan._
 
-> **Nota de alcance:** TINO es el motor de automatización de tu cliente actual — no es tuyo ni es parte de lo que vendes a nuevos clientes. Este documento y la landing ya no lo mencionan como tecnología propia. Lo que sí es tuyo y sostiene toda la oferta: la metodología de 4 fases, tu especialización en ERPNext, y la automatización que construyes a la medida de cada cliente (sin marca propia por ahora — es un servicio, no un producto empaquetado).
+> **Nota de alcance:** TINO es el motor de automatización de tu cliente actual — no es tuyo ni es parte de lo que vendes a nuevos clientes. Este documento y la landing ya no lo mencionan como tecnología propia. Lo que sí es tuyo y sostiene toda la oferta: la metodología de 4 fases, tu experiencia implementando sistemas (hoy sobre ERPNext), y la automatización que construyes a la medida de cada cliente (sin marca propia por ahora — es un servicio, no un producto empaquetado).
+>
+> **Nota de alcance 2:** la marca tampoco se casa con ERPNext. Es la herramienta con la que resuelves el sistema de registro hoy, no una identidad permanente — si mañana cambias de plataforma, la marca y el posicionamiento no deberían tener que cambiar con ella. Por eso el nombre y el mensaje central se apoyan en la metodología y la verificación (auditoría v1/v2), no en el nombre de ninguna herramienta específica.
 
 ---
 
@@ -46,7 +48,7 @@ Si más adelante desarrollas tu propia herramienta de automatización reutilizab
 ### Opciones
 
 **1. Cimiento** — _recomendado_
-"No decoramos tu negocio, le construimos el cimiento que nunca tuvo." Metáfora directa y sin ambigüedad: estructura debajo de lo que ya existe, no algo cosmético encima. Fácil de decir, fácil de recordar para un dueño de PYME, no requiere explicación. Funciona bien como "Cimiento — sistema y datos para PYMEs, sobre ERPNext."
+"No decoramos tu negocio, le construimos el cimiento que nunca tuvo." Metáfora directa y sin ambigüedad: estructura debajo de lo que ya existe, no algo cosmético encima. Fácil de decir, fácil de recordar para un dueño de PYME, no requiere explicación. Funciona bien como "Cimiento — estrategia y sistemas de datos para PYMEs" (sin nombrar la herramienta en la tagline, por la nota de alcance 2 de arriba).
 
 **2. Bitácora**
 El cuaderno de bitácora: el registro fechado y verificable de lo que pasó — conecta directo con las auditorías v1/v2 y el journey documentado. Más literario que "Cimiento", pone el foco en la *prueba/registro* más que en la *construcción*. Buena opción si se quiere que el nombre hable primero de "verificable" y después de "sistema".
