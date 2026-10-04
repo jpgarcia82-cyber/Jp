@@ -9,6 +9,7 @@ connectors and scheduled tasks. There is no source code, build tooling or tests.
 
 - `README.md` — index of the projects, setup order and checklist.
 - `proyectos/` — one Markdown file per project with copy-paste prompts, plus a generic template.
+- `cimiento/` — lead-generation system for Cimiento (PYME consulting) built on those projects, mapped to the AARRR funnel.
 
 ## Branch Convention
 

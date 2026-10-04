@@ -30,3 +30,7 @@ copiar y pegar, en orden.
 - [ ] Proyecto "Mi revisión" creado + tarea diaria 10:00 PM + tarea semanal domingo 7:00 PM
 - [ ] Proyecto "Mi marca" creado + 5-10 textos subidos + kit generado
 - [ ] Proyecto "Lo que aprendo" creado + primera entrada guardada
+
+## Aplicado a negocio
+
+- [Cimiento — sistema de lead generation](cimiento/README.md): los 5 proyectos adaptados al embudo AARRR de Cimiento.
