@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Status
 
-This repository is currently empty and under initial setup. No source code, build tooling, tests, or configuration files exist yet.
+This repository holds a personal prompt kit (in Spanish) for setting up claude.ai Projects,
+connectors and scheduled tasks. There is no source code, build tooling or tests.
+
+- `README.md` — index of the projects, setup order and checklist.
+- `proyectos/` — one Markdown file per project with copy-paste prompts, plus a generic template.
 
 ## Branch Convention
 
 Active development branches follow the pattern `claude/<description>-<id>` (e.g. `claude/add-claude-documentation-AbUk1`).
-
----
-
-_This file should be updated once the codebase is established with build commands, architecture notes, and development workflows._
